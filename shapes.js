@@ -1,3 +1,7 @@
+/*
+	HTML5 Canvas - Shape Class
+	https://github.com/webarbeit
+*/
 // Base Class
 Shape = function(_context, _x, _y, _color) {
 	this.init(_context, _x, _y, _color);
@@ -58,8 +62,6 @@ ImageShape.prototype.draw = function() {
 // -------------------------------------------------
 Line = function(_context, _startX, _startY, _endX, _endY, _lineWidth, _color) {
 	this.constructor(_context, _startX, _startY, _color);
-	/*this.startX = _startX;
-	this.starY = _startY; */
 	this.endX = _endX;
 	this.endY = _endY;
 	this.lineWidth = _lineWidth;
