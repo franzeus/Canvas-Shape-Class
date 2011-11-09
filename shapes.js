@@ -1,5 +1,5 @@
 /*
-	HTML5 Canvas - Shape Class
+	HTML5 Canvas - Shape Class V 1.1
 	https://github.com/webarbeit
 */
 // Base Class
@@ -14,9 +14,9 @@ Shape.prototype.init = function(_context, _x, _y, _color) {
 };
 
 // -------------------------------------------------
-Circle = function(_context, _x, _y, _r, _color) {
-	this.constructor(_context, _x, _y, _color);
-	this.radius = _r;
+Circle = function(_settings) {
+	this.constructor(_settings.context, _settings.x, _settings.y, _settings.color);
+	this.radius = _settings.radius;
 };
 Circle.prototype = new Shape();
 //
@@ -28,10 +28,10 @@ Circle.prototype.draw = function() {
 };
 
 // -------------------------------------------------
-Rectangle = function(_context, _x, _y, _w, _h, _color) {
-	this.constructor(_context, _x, _y, _color);
-	this.width = _w;
-	this.height = _h
+Rectangle = function(_settings) {
+	this.constructor(_settings.context, _settings.x, _settings.y, _settings.color);
+	this.width = _settings.width;
+	this.height = _settings.height;
 };
 Rectangle.prototype = new Shape();
 //
@@ -41,14 +41,14 @@ Rectangle.prototype.draw = function() {
 };
 
 // -------------------------------------------------
-ImageShape = function(_context, _x, _y, _w, _h, _src, _angle) {
-	this.constructor(_context, _x, _y);
-	this.width = _w;
-	this.height = _h
-	this.src = _src;
+ImageShape = function(_settings) {
+	this.constructor(_settings.context, _settings.x, _settings.y);
+	this.width = _settings.width;
+	this.height = _settings.height;
+	this.src = _settings.src;
 	this.img = new Image();
-	this.img.src = _src;
-	this.angle = 0;// _angle;
+	this.img.src = this.src;
+	this.angle = _settings.angle;// _angle;
 };
 ImageShape.prototype = new Shape();
 //
@@ -59,12 +59,13 @@ ImageShape.prototype.draw = function() {
 	this.canvasContext.restore();
 };
 
+
 // -------------------------------------------------
-Line = function(_context, _startX, _startY, _endX, _endY, _lineWidth, _color) {
-	this.constructor(_context, _startX, _startY, _color);
-	this.endX = _endX;
-	this.endY = _endY;
-	this.lineWidth = _lineWidth;
+Line = function(_settings) {
+	this.constructor(_settings.context, _settings.startX, _settings.startY, _settings.color);
+	this.endX = _settings.endX;
+	this.endY = _settings.endY;
+	this.lineWidth = _settings.lineWidth;
 };
 Line.prototype = new Shape();
 //

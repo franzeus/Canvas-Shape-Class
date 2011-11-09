@@ -1,21 +1,17 @@
-Version: 1.0
+Version: 1.1
 
 # Circle #
-// context, _x, _y, _radius, _color
-var circle = new Circle(context, 100, 200, 20, '#00FF00'); 
+var circle = new Circle({ context: context, x: 10, y: 20, radius: 20, color: '#008800' }); 
 circle.draw();
 
 # Rectangle #
-// _context, _x, _y, _w, _h, _color
-var rect = new Rectangle(context, 300, 30, 50, 50, '#FFFF00');
+new Rectangle({ context: context, x: 10, y: 20, width: 100, height: 100, color: '#008800' });
 rect.draw();
 
 # Line #
-// _context, _startX, _startY, _endX, _endY, _lineWidth, _color
-var line = new Line(context, 10, 20, 100, 200, 2, '#FFF000');
+var line = new Line({ context: context, startX: 10, startY: 20, endY: 100, endX: 200, lineWidth: 2, color: '#008888' });
 line.draw();
 
 # Image #
-// _context, _x, _y, _w, _h, _src, _angle
-var img = new ImageShape(context, 100, 100, 33, 52, 'images/stuff.png', 45);
+var img = new ImageShape({ context: context, x: 10, y: 20, width: 100, height: 100, src: 'assets/leimage.png', angle: 45 });
 img.draw();
