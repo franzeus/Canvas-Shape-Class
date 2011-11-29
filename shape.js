@@ -11,7 +11,7 @@ Shape.prototype.init = function(_context, _x, _y, _color, _w, _h) {
 	this.y = _y || 0;
 	this.width = _w || 0;
 	this.height = _h || 0;
-	this.color = _color;
+	this.color = _color || '#008800';
 	this.canvasContext = _context;
 };
 //
@@ -74,7 +74,6 @@ ImageShape.prototype.draw = function() {
 	this.canvasContext.restore();
 };
 
-
 // -------------------------------------------------
 Line = function(_settings) {
 	this.constructor(_settings.context, _settings.startX, _settings.startY, _settings.color);
@@ -92,4 +91,9 @@ Line.prototype.draw = function() {
   this.canvasContext.lineTo(this.endX, this.endY);
   this.canvasContext.stroke();
   this.canvasContext.closePath();
+};
+Line.prototype.getCenterPoint = function() {
+	var centerX = (this.x + this.endX) / 2;
+	var centerY = (this.y + this.endY) / 2;
+	return { x: centerX, y: centerY };
 };

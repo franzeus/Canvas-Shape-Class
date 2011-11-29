@@ -18,7 +18,7 @@ img.draw();
 
 # Methods #
 
-getCenterPoint() -> will return the x and y coordinate of the center of the shape (not for Line).
+getCenterPoint() -> will return the x and y coordinate of the center of the shape or line.
 For example:
 var xCenter = rect.getCenterPoint().x;
 var yCenter = rect.getCenterPoint().y;
