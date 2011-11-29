@@ -20,6 +20,17 @@ Shape.prototype.getCenterPoint = function() {
 	var centerY = this.y + (this.height / 2);
 	return { x: centerX, y: centerY };
 };
+// Collision Detection
+Shape.prototype.isCollidingWith = function(obj2) {
+	if(	this.x > obj2.x &&
+			this.x < (obj2.x + obj2.width) &&
+			this.y > obj2.y &&
+			this.y < ( obj2.y +  obj2.height) )	{
+				return true;
+			}
+	return false;
+};
+
 
 // -------------------------------------------------
 Circle = function(_settings) {

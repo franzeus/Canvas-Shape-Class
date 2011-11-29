@@ -19,6 +19,10 @@ img.draw();
 # Methods #
 
 getCenterPoint() -> will return the x and y coordinate of the center of the shape or line.
-For example:
-var xCenter = rect.getCenterPoint().x;
-var yCenter = rect.getCenterPoint().y;
+  For example:
+  var xCenter = rect.getCenterPoint().x;
+  var yCenter = rect.getCenterPoint().y;
+
+shape1.isCollidingWith(shape2) -> returns true if shape1.x and shape1.y are in shape2
+  For example:
+  rect.isCollidingWith(circle); // false
