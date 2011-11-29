@@ -1,11 +1,11 @@
 Version: 1.2
 
 # Circle #
-var circle = new Circle({ context: context, x: 10, y: 20, radius: 20, color: '#008800' }); 
+var circle = new Circle({ context: context, x: 10, y: 20, radius: 20, color: '#008800', alignToCenter: true }); 
 circle.draw();
 
 # Rectangle #
-new Rectangle({ context: context, x: 10, y: 20, width: 100, height: 100, color: '#008800' });
+var rect = new Rectangle({ context: context, x: 10, y: 20, width: 100, height: 100, color: '#008800' });
 rect.draw();
 
 # Line #
