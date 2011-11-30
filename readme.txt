@@ -1,4 +1,4 @@
-Version: 1.2
+Version: 1.3
 
 # Circle #
 var circle = new Circle({ context: context, x: 10, y: 20, radius: 20, color: '#008800', alignToCenter: true }); 
@@ -15,6 +15,10 @@ line.draw();
 # Image #
 var img = new ImageShape({ context: context, x: 10, y: 20, width: 100, height: 100, src: 'assets/leimage.png', angle: 45 });
 img.draw();
+
+# Image Sprite # 
+var imgSprite = new ImageSprite({ context: context, x: 10, y: 20, width: 100, height: 100, src: 'assets/leSpriteimage.png', frames: 4 });
+imgSprite.draw();
 
 # Methods #
 

@@ -1,5 +1,5 @@
 /*
-	HTML5 Canvas - Shape Class V 1.2
+	HTML5 Canvas - Shape Class V 1.3
 	https://github.com/webarbeit
 */
 // Base Class
@@ -83,6 +83,32 @@ ImageShape.prototype.draw = function() {
 	this.canvasContext.rotate(this.angle * Math.PI  / 180);
 	this.canvasContext.drawImage(this.img, this.x, this.y, this.width, this.height);
 	this.canvasContext.restore();
+};
+
+// -------------------------------------------------
+ImageSprite = function(_settings) {
+ this.constructor(_settings.context, _settings.x, _settings.y, _settings.width, _settings.height);
+ this.src = _settings.src;
+ this.img = new Image();
+ this.img.src = this.src;
+
+ this.actualFrame = 0;
+ this.frames = _settings.frames;
+ this.interval = 0;
+};
+ImageSprite.prototype = new Shape();
+//
+ImageSprite.prototype.draw = function() {
+ if (this.interval == this.frames ) {
+   if (this.actualFrame == this.frames) {
+       this.actualFrame = 0;
+   } else {
+       this.actualFrame++;
+   }
+   this.interval = 0;
+ }
+ this.interval++;
+ this.canvasContext.drawImage(this.img, this.width * this.actualFrame, 0, this.width, this.height, this.x, this.y, this.width, this.height);
 };
 
 // -------------------------------------------------
