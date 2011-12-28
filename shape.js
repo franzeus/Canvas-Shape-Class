@@ -1,5 +1,5 @@
 /*
-	HTML5 Canvas - Shape Class V 1.3
+	HTML5 Canvas - Shape Class V 1.4
 	https://github.com/webarbeit
 */
 // Base Class
@@ -138,7 +138,7 @@ Line.prototype.getCenterPoint = function() {
 Text = function(_settings) {
 	this.constructor(_settings.context, _settings.x, _settings.y, _settings.color);
 	this.label = _settings.label;
-	this.fontSize =  _settings.size "10pt Arial";
+	this.fontSize =  _settings.size || "10pt Arial";
 };
 Text.prototype = new Shape();
 //
@@ -149,4 +149,16 @@ Text.prototype.draw = function() {
 };
 Text.prototype.getCenterPoint = function() {
 	return this.canvasContext.measureText(this.label).width / 2;
+};
+
+// -------------------------------------------------
+/* HELPER MATH METHODS */
+Math.angleBetweenPoints = function(x1, y1, x2, y2) {
+  return Math.atan2(y1 - y2, x1 - x2);
+};
+Math.vectorBetweenPoints = function(x1, y1, x2, y2, _divider) {  
+  var divider = parseInt(_divider) || 1;
+  xChange = (x1 - x2) / divider;
+  yChange = (x2 - y2) / divider;
+  return { x: xChange, y: yChange };
 };
