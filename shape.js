@@ -31,7 +31,6 @@ Shape.prototype.isCollidingWith = function(obj2) {
 	return false;
 };
 
-
 // -------------------------------------------------
 Circle = function(_settings) {
 	this.constructor(_settings.context, _settings.x, _settings.y, _settings.color);
@@ -74,14 +73,14 @@ ImageShape = function(_settings) {
 	this.src = _settings.src;
 	this.img = new Image();
 	this.img.src = this.src;
-	this.angle = _settings.angle;// _angle;
+	this.angle = _settings.angle;
 };
 ImageShape.prototype = new Shape();
 //
 ImageShape.prototype.draw = function() {
 	this.canvasContext.save();
-	this.canvasContext.rotate(this.angle * Math.PI  / 180);
-	this.canvasContext.drawImage(this.img, this.x, this.y, this.width, this.height);
+		this.canvasContext.rotate(this.angle * Math.PI  / 180);
+		this.canvasContext.drawImage(this.img, this.x, this.y, this.width, this.height);
 	this.canvasContext.restore();
 };
 
@@ -133,4 +132,21 @@ Line.prototype.getCenterPoint = function() {
 	var centerX = (this.x + this.endX) / 2;
 	var centerY = (this.y + this.endY) / 2;
 	return { x: centerX, y: centerY };
+};
+
+// -------------------------------------------------
+Text = function(_settings) {
+	this.constructor(_settings.context, _settings.x, _settings.y, _settings.color);
+	this.label = _settings.label;
+	this.fontSize =  _settings.size "10pt Arial";
+};
+Text.prototype = new Shape();
+//
+Text.prototype.draw = function() {
+  this.canvasContext.font = this.fontSize;
+  this.canvasContext.fillStyle = this.color;
+  this.canvasContext.fillText(this.label, this.x, this.y);
+};
+Text.prototype.getCenterPoint = function() {
+	return this.canvasContext.measureText(this.label).width / 2;
 };
